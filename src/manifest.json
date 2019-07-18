@@ -1,0 +1,35 @@
+{
+    "name": "__MSG_extensionName__"
+  , "description": "__MSG_extensionDescription__"
+  , "version": "0.0.1"
+
+  , "developer": {
+        "name": "Matt Hensman <m@matt.tf>"
+      , "url": "https://github.com/hensm/hide_private_mode"
+    }
+
+  , "browser_specific_settings": {
+        "gecko": {
+            "id": "hide_private_mode@matt.tf"
+          , "strict_min_version": "60.0"
+        }
+    }
+
+  , "content_scripts": [
+        {
+            "js": [ "contentLoader.ts" ]
+          , "matches": [ "<all_urls>" ]
+          , "run_at": "document_start"
+        }
+    ]
+
+  , "default_locale": "en"
+  , "manifest_version": 2
+
+  , "permissions": [
+        "<all_urls>"
+    ]
+  , "web_accessible_resources": [
+        "content.ts"
+    ]
+}

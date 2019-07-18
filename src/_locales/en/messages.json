@@ -1,0 +1,8 @@
+{
+    "extensionName": {
+        "message": "Hide Private Mode"
+    }
+  , "extensionDescription": {
+        "message": "Prevents detection of private browsing mode."
+    }
+}
