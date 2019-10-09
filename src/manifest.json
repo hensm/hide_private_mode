@@ -17,7 +17,8 @@
 
   , "content_scripts": [
         {
-            "js": [ "contentLoader.ts" ]
+            "all_frames": true
+          , "js": [ "contentLoader.ts" ]
           , "matches": [ "<all_urls>" ]
           , "run_at": "document_start"
         }
