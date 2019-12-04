@@ -1,10 +1,12 @@
 "use strict";
 
 /**
- * If loaded in private browsing mode, inject content.ts
- * script into page script context.
+ * If loaded in private browsing mode on an HTML web page, inject
+ * content.ts script into page script context.
  */
-if (browser.extension.inIncognitoContext) {
+if (document instanceof HTMLDocument
+     && browser.extension.inIncognitoContext) {
+
     const req = new XMLHttpRequest();
     req.open("GET", browser.runtime.getURL("content.js"), false);
     req.send();
