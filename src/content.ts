@@ -14,9 +14,15 @@ import FDBTransaction from "fake-indexeddb/lib/FDBTransaction";
 import FDBVersionChangeEvent from "fake-indexeddb/lib/FDBVersionChangeEvent";
 
 
-Reflect.defineProperty(window, "indexedDB", {
+Object.defineProperty(window, "indexedDB", {
     get () {
         return indexedDB;
+    }
+});
+
+Object.defineProperty(navigator, "serviceWorker", {
+    get () {
+        return {};
     }
 });
 
