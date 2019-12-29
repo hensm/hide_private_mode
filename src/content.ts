@@ -20,12 +20,6 @@ Object.defineProperty(window, "indexedDB", {
     }
 });
 
-Object.defineProperty(navigator, "serviceWorker", {
-    get () {
-        return {};
-    }
-});
-
 window.IDBCursor = FDBCursor;
 window.IDBCursorWithValue = FDBCursorWithValue;
 window.IDBDatabase = FDBDatabase;
@@ -37,3 +31,30 @@ window.IDBOpenDBRequest = FDBOpenDBRequest;
 window.IDBRequest = FDBRequest;
 window.IDBTransaction = FDBTransaction;
 window.IDBVersionChangeEvent = FDBVersionChangeEvent;
+
+
+if (!("serviceWorker" in navigator)) {
+    Object.defineProperty(navigator, "serviceWorker", {
+        get () {
+            return {
+                get controller () {
+                    return null;
+                }
+              , get ready () {
+                    return new Promise(() => {});
+                }
+
+              , register () {
+                    return new Promise(() => {});
+                }
+              , getRegistration () {
+                    return new Promise(() => {});
+                }
+              , getRegistrations () {
+                    return new Promise(() => {});
+                }
+              , startMessages () {}
+            };
+        }
+    });
+}
