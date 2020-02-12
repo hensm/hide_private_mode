@@ -36,7 +36,7 @@ window.IDBVersionChangeEvent = FDBVersionChangeEvent;
 if (!("serviceWorker" in navigator)) {
     Object.defineProperty(navigator, "serviceWorker", {
         get () {
-            return {
+            return new class extends EventTarget {
                 get controller () {
                     return null;
                 }
